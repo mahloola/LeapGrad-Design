@@ -1,9 +1,13 @@
 import React from 'react'
+import './css/activitydetail.css'
 
-const ActivityDetail = ({activity}) => {
+const ActivityDetail = ({ activity }) => {
     return (
         <div>
-            {activity.id}
+            <div className="activity-container">
+                {activity.from} called {activity.to}
+                
+            </div>
         </div>
     )
 }
