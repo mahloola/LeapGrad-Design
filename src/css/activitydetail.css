@@ -4,3 +4,24 @@
     margin: 10px 0;
     padding: 10px;
 }
+
+.activity-to {
+    color: grey;
+}
+
+.activity-phone-inbound {
+    float: left;
+    margin-top: auto;  
+    color: blue;
+}
+.activity-phone-outbound {
+    float: left;
+    margin-top: auto;
+    color: green;  
+}
+.activity-duration {
+    color: grey;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
