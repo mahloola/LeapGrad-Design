@@ -1,4 +1,5 @@
 #app {
+  font-family: 'Roboto', sans-serif;
   position: absolute;
   display: flex;
   align-items: center;
@@ -12,7 +13,8 @@
 
 #app .navbar {
   display: flex;
-  border-bottom: 1px solid #828282; 
+  border-bottom: 1px dashed #828282;
+  font-family: 'Roboto', sans-serif;
 }
 
 #app .container {
@@ -27,5 +29,53 @@
 
 #app .container-view {
   padding: 20px;
+}
+
+#app .incoming-tab {
+  font-family: 'Roboto', sans-serif;
+  max-height: 4em;
+  padding: 1em;
+  margin: auto;
+  background: white;
+  border: none;
+  border-bottom: 1px solid transparent;
+  border-radius: 3em;
+}
+#app .incoming-tab:hover{
+  border-bottom: 1px solid blue;
+  background-color: rgb(195, 195, 255);
+  cursor: pointer;
+}
+
+#app .outgoing-tab {
+  font-family: 'Roboto', sans-serif;
+  max-height: 4em;
+  padding: 1em;
+  margin: auto;
+  background: white;
+  border: none;
+  border-bottom: 1px solid transparent;
+  border-radius: 3em;
+}
+#app .outgoing-tab:hover{
+  border-bottom: 1px solid green;
+  background-color: rgb(195, 255, 195);
+  cursor: pointer;
+}
+
+#app .voicemail-tab {
+  font-family: 'Roboto', sans-serif;
+  max-height: 4em;
+  padding: 1em;
+  margin: auto 1em auto auto;
+  background: white;
+  border: none;
+  border-bottom: 1px solid transparent;
+  border-radius: 3em;
+}
+#app .voicemail-tab:hover{
+  background-color: rgb(255, 195, 195);
+  border-bottom: 1px solid red;
+  cursor: pointer;
 }
 

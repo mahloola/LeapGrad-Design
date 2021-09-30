@@ -1,27 +1,68 @@
 .activity-container {
+    display: flex;
+    align-items: center;
+    justify-content: left;
     border: 1px solid black;
     border-radius: 3px;
     margin: 10px 0;
     padding: 10px;
+    box-shadow: 6px 1px;
+    border-radius: 1em;
+}
+.activity-container:hover {
+    background-color: rgb(230, 230, 230);
 }
 
 .activity-to {
     color: grey;
 }
 
-.activity-phone-inbound {
-    float: left;
-    margin-top: auto;  
-    color: blue;
+.activity-phone-answered {
+    display: inline-block;
+    vertical-align: middle;
+    margin: auto 5px;
+    color: green;
 }
-.activity-phone-outbound {
+.activity-phone-missed {
     float: left;
-    margin-top: auto;
-    color: green;  
+    margin-top: auto 5px;
+    color: red;  
+}
+.activity-phone-voicemail {
+    float: left;
+    margin-top: auto 5px;
+    color: black;  
+    display: table-cell;
+    line-height: 30px;
+    vertical-align: middle;
+}
+
+.activity-time {
+    color: rgb(50, 50, 50);
+    float: right;
+    font-size: 1.2em;
+    padding-left: 20px;
+    border-left: 1px groove rgb(50, 50, 50);
 }
 .activity-duration {
     color: grey;
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
+    float: left;
+    font-style: italic;
+}
+
+.activity-table {
+    width: 80%;
+    float: right;
+}
+
+.activity-to {
+    font-weight: bold;
+}
+.activity-from {
+    
+}
+
+.date-container {
+    font-size: 1em;
+    letter-spacing: 2px;
 }

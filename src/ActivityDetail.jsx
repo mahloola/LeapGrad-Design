@@ -1,31 +1,85 @@
 import React from 'react'
-import { BiPhoneIncoming, BiPhoneOutgoing } from "react-icons/bi"
+import { FiPhoneCall, FiPhoneOff } from "react-icons/fi";
+import { AiFillMail } from "react-icons/ai";
 import './css/activitydetail.css'
+
+const month = new Array();
+month[0] = "January";
+month[1] = "February";
+month[2] = "March";
+month[3] = "April";
+month[4] = "May";
+month[5] = "June";
+month[6] = "July";
+month[7] = "August";
+month[8] = "September";
+month[9] = "October";
+month[10] = "November";
+month[11] = "December";
+
+function isoToDay(isoDate) {
+    const date = new Date(isoDate);
+    return date.getDate();
+}
+function isoToMonth(isoDate) {
+    const date = new Date(isoDate);
+    return month[date.getMonth()];
+}
+function isoToTime(isoDate) {
+    return isoDate.slice(11, 16);
+
+}
+function formatDuration(seconds) {
+    var minutes = seconds / 60;
+    var zerofilled = ('0000' + seconds % 60).slice(-2);
+    return (minutes + ":" + zerofilled);
+}
 
 const ActivityDetail = ({ activity }) => {
     return (
         <div>
-
+            <div className="date-container">
+                {isoToMonth(activity.created_at)}    {isoToDay(activity.created_at)}
+            </div>
             <div className="activity-container">
-
-                {activity.direction == "outbound" &&
-                    <div className="activity-phone-outbound">
-                        <BiPhoneOutgoing size={20}></BiPhoneOutgoing>
+                {activity.call_type == "answered" &&
+                    <div className="activity-phone-answered">
+                        <FiPhoneCall size={20}></FiPhoneCall>
                     </div>}
-
-                {activity.direction == "inbound" &&
-                    <div className="activity-phone-inbound">
-                        <BiPhoneIncoming size={20}></BiPhoneIncoming>
+                {activity.call_type == "missed" &&
+                    <div className="activity-phone-missed">
+                        <FiPhoneOff size={20}></FiPhoneOff>
                     </div>}
+                {activity.call_type == "voicemail" &&
+                    <div className="activity-phone-voicemail">
+                        <AiFillMail size={20}></AiFillMail>
+                    </div>}
+                <table className="activity-table">
+                    <tr>
+                        <td>
+                            <span className="activity-from">{activity.from}</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            called <span className="activity-to">{activity.to}</span>
+                        </td>
+                        <td>
+                            <div className="activity-time">
 
-                {activity.from}
-                <br />
-                <div className="activity-to">
-                    called {activity.to}
-                </div>
-                <div className="activity-duration">
-                    {activity.duration}
-                </div>
+                                {isoToTime(activity.created_at)}
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div className="activity-duration">
+                                for {formatDuration(activity.duration)}
+                            </div>
+                        </td>
+
+                    </tr>
+                </table>
             </div>
         </div>
     )
