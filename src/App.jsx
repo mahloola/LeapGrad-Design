@@ -1,6 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { useState, useEffect } from 'react';
+import { FiPhoneIncoming, FiPhoneOutgoing } from "react-icons/fi";
+import { BsCircle } from "react-icons/bs";
 import ActivityFeed from './ActivityFeed.jsx';
 import Header from './Header.jsx';
 
@@ -14,8 +16,8 @@ const App = () => {
   function setOutgoingTab() {
     setTab("outgoing");
   }
-  function setVoicemailTab() {
-    setTab("voicemail");
+  function setAllTab() {
+    setTab("all");
   }
 
 
@@ -23,9 +25,9 @@ const App = () => {
     <div className='container'>
       <div className='navbar'>
         <Header />
-          <button className="incoming-tab" onClick={setIncomingTab}>incoming</button>
-          <button className="outgoing-tab" onClick={setOutgoingTab}>outgoing</button>
-          <button className="voicemail-tab" onClick={setVoicemailTab}>voicemail</button>
+          <button className="incoming-tab" onClick={setIncomingTab}><FiPhoneIncoming size={20}></FiPhoneIncoming></button>
+          <button className="outgoing-tab" onClick={setOutgoingTab}><FiPhoneOutgoing size={20}></FiPhoneOutgoing></button>
+          <button className="all-tab" onClick={setAllTab}><BsCircle size={20}></BsCircle></button>
       </div>
       <div className="container-view">
         <ActivityFeed tab={tab} />
