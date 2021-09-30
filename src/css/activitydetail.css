@@ -4,10 +4,10 @@
     justify-content: left;
     border: 1px solid black;
     border-radius: 3px;
-    margin: 10px 0;
+    margin: 1.2em 0;
     padding: 10px;
-    box-shadow: 6px 1px;
-    border-radius: 1em;
+    box-shadow: 5px 0;
+    border-radius: 2em;
 }
 .activity-container:hover {
     background-color: rgb(230, 230, 230);
@@ -24,23 +24,22 @@
     color: green;
 }
 .activity-phone-missed {
-    float: left;
-    margin-top: auto 5px;
-    color: red;  
+    display: inline-block;
+    vertical-align: middle;
+    margin: auto 5px;
+    color: red; 
 }
 .activity-phone-voicemail {
-    float: left;
-    margin-top: auto 5px;
-    color: black;  
-    display: table-cell;
-    line-height: 30px;
+    display: inline-block;
     vertical-align: middle;
+    margin: auto 5px;
+    color: black;
 }
 
 .activity-time {
     color: rgb(50, 50, 50);
     float: right;
-    font-size: 1.2em;
+    font-size: 1.4em;
     padding-left: 20px;
     border-left: 1px groove rgb(50, 50, 50);
 }
@@ -49,7 +48,10 @@
     float: left;
     font-style: italic;
 }
-
+.activity-via {
+    text-align: right;
+    color: grey;
+}
 .activity-table {
     width: 80%;
     float: right;
@@ -65,4 +67,6 @@
 .date-container {
     font-size: 1em;
     letter-spacing: 2px;
+    text-align: center;
+    margin-top: 1em;
 }

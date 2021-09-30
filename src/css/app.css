@@ -13,7 +13,7 @@
 
 #app .navbar {
   display: flex;
-  border-bottom: 1px dashed #828282;
+  border-bottom: 1px dotted #828282;
   font-family: 'Roboto', sans-serif;
 }
 
@@ -22,13 +22,13 @@
   height: 666px;
   z-index: 100;
 
-  background: white;
+  background: rgb(237, 237, 237);
   border-radius: 3px;
   box-shadow: 0 0 5px 0 rgba(0, 0, 0, .9);
 }
 
 #app .container-view {
-  padding: 20px;
+  padding: 0 20px 20px;
 }
 
 #app .incoming-tab {
@@ -38,12 +38,11 @@
   margin: auto;
   background: white;
   border: none;
-  border-bottom: 1px solid transparent;
   border-radius: 3em;
+  background-color: rgb(195, 255, 195);
 }
 #app .incoming-tab:hover{
-  border-bottom: 1px solid blue;
-  background-color: rgb(195, 195, 255);
+  background-color: rgb(150, 255, 150);
   cursor: pointer;
 }
 
@@ -54,28 +53,26 @@
   margin: auto;
   background: white;
   border: none;
-  border-bottom: 1px solid transparent;
   border-radius: 3em;
+  background-color: rgb(195, 195, 255);
 }
 #app .outgoing-tab:hover{
-  border-bottom: 1px solid green;
-  background-color: rgb(195, 255, 195);
+  background-color: rgb(150, 150, 255);
   cursor: pointer;
 }
 
-#app .voicemail-tab {
+#app .all-tab {
   font-family: 'Roboto', sans-serif;
   max-height: 4em;
   padding: 1em;
   margin: auto 1em auto auto;
   background: white;
   border: none;
-  border-bottom: 1px solid transparent;
   border-radius: 3em;
+  background-color: rgb(195, 195, 195);
 }
-#app .voicemail-tab:hover{
-  background-color: rgb(255, 195, 195);
-  border-bottom: 1px solid red;
+#app .all-tab:hover{
+  background-color: rgb(150, 150, 150);
   cursor: pointer;
 }
 
