@@ -17,16 +17,7 @@ const App = () => {
   function setVoicemailTab() {
     setTab("voicemail");
   }
-  function renderSwitch(tab) {
-    switch (tab) {
-      case 'incoming':
-        return 'incoming';
-      case 'outgoing':
-        return 'outgoing';
-      case 'voicemail':
-        return 'voicemail';
-    }
-  }
+
 
   return (
     <div className='container'>
@@ -37,7 +28,7 @@ const App = () => {
           <button className="voicemail-tab" onClick={setVoicemailTab}>voicemail</button>
       </div>
       <div className="container-view">
-        <ActivityFeed tab={renderSwitch(tab)} />
+        <ActivityFeed tab={tab} />
       </div>
       <div>
 
