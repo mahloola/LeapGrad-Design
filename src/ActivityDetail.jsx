@@ -38,6 +38,7 @@ function formatDuration(seconds) {
 const ActivityDetail = ({ activity }) => {
     return (
         <div>
+            {/* todo: fix the date to not repeat days*/}
             <div className="date-container">
                 {isoToMonth(activity.created_at)}    {isoToDay(activity.created_at)}
             </div>
@@ -61,9 +62,14 @@ const ActivityDetail = ({ activity }) => {
                         </td>
                     </tr>
                     <tr>
-                        <td>
-                            called <span className="activity-to">{activity.to}</span>
-                        </td>
+                        {activity.call_type == "voicemail" ?
+                            <td>
+                                sent a voicemail
+                            </td>
+                            :
+                            <td>
+                                called <span className="activity-to">{activity.to}</span>
+                            </td>}
                         <td>
                             <div className="activity-time">
 
@@ -76,6 +82,11 @@ const ActivityDetail = ({ activity }) => {
                             <div className="activity-duration">
                                 for {formatDuration(activity.duration)}
                             </div>
+                            {/* leaving this out for now because it's too cluttered
+                            <div className="activity-via">
+                                via {activity.via}
+                            </div>
+                             */}
                         </td>
 
                     </tr>
