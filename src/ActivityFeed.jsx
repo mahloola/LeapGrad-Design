@@ -1,12 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import ActivityDetail from './ActivityDetail.jsx'
 
-const ActivityFeed = ( tab ) => {
+const ActivityFeed = (tab) => {
 
-    const [activitiesPage, setActivitiesPage] = useState(null);
-    const [missedCalls, setMissedCalls] = useState(null);
-    const [answeredCalls, setAnsweredCalls] = useState(null);
-    const [voiceMailCalls, setVoiceMailCalls] = useState(null);
+    const [incomingCalls, setIncomingCalls] = useState(null);
+    const [outgoingCalls, setOutgoingCalls] = useState(null);
+    const [allCalls, setAllCalls] = useState(null);
 
     useEffect(() => {
         console.log(tab);
@@ -14,31 +13,40 @@ const ActivityFeed = ( tab ) => {
         fetch(`https://aircall-job.herokuapp.com/activities`)
             .then(res => res.json())
             .then((data) => {
-                setMissedCalls(data.filter(function (e) {
-                    return e.call_type == "missed";
+                setIncomingCalls(data.filter(function (e) {
+                    return e.direction == "inbound";
                 }));
-                setAnsweredCalls(data.filter(function (e) {
-                    return e.call_type == "answered";
-                }));
-                setVoiceMailCalls(data.filter(function (e) {
-                    return e.call_type == "voicemail";
+                setOutgoingCalls(data.filter(function (e) {
+                    return e.direction == "outbound";
                 }));
 
                 console.log(data);
-                setActivitiesPage(data);
+                setAllCalls(data);
             })
             .catch(err => console.error('Unable to load activity data: ', err));
     }, []);
 
     return (
         <div>
-            {/* change answeredCalls to missedCalls or voiceMailCalls */}
+            {/* I decided to stick with the instructions and not make extra components for the tabs*/}
+            {/* my approach was to pass the tab as a prop */}
+            {/* I don't really know how to do this */}
             {
-              activitiesPage !== null ? answeredCalls.map((activity) => (
-                <ActivityDetail key={activity.id} activity={activity} />
+                incomingCalls !== null ? incomingCalls.map((activity) => (
+                    <ActivityDetail key={activity.id} activity={activity} />
                 )) : null
-            }      
-            
+            }
+            {
+                incomingCalls !== null && tab === "outgoing" ? outgoingCalls.map((activity) => (
+                    <ActivityDetail key={activity.id} activity={activity} />
+                )) : null
+            }
+            {
+                incomingCalls !== null && tab === "all" ? allCalls.map((activity) => (
+                    <ActivityDetail key={activity.id} activity={activity} />
+                )) : null
+            }
+
         </div>
     )
 }
