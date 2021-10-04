@@ -4,18 +4,18 @@ import { AiFillMail } from "react-icons/ai";
 import './css/activitydetail.css'
 
 const month = new Array();
-month[0] = "January";
-month[1] = "February";
-month[2] = "March";
-month[3] = "April";
+month[0] = "Jan";
+month[1] = "Feb";
+month[2] = "Mar";
+month[3] = "Apr";
 month[4] = "May";
-month[5] = "June";
-month[6] = "July";
-month[7] = "August";
-month[8] = "September";
-month[9] = "October";
-month[10] = "November";
-month[11] = "December";
+month[5] = "Jun";
+month[6] = "Jul";
+month[7] = "Aug";
+month[8] = "Sep";
+month[9] = "Oct";
+month[10] = "Nov";
+month[11] = "Dec";
 
 function isoToDay(isoDate) {
     const date = new Date(isoDate);
@@ -38,10 +38,6 @@ function formatDuration(seconds) {
 const ActivityDetail = ({ activity }) => {
     return (
         <div>
-            {/* todo: fix the date to not repeat days*/}
-            <div className="date-container">
-                {isoToMonth(activity.created_at)}    {isoToDay(activity.created_at)}
-            </div>
             <div className="activity-container">
                 {activity.call_type == "answered" &&
                     <div className="activity-phone-answered">
@@ -56,40 +52,51 @@ const ActivityDetail = ({ activity }) => {
                         <AiFillMail size={20}></AiFillMail>
                     </div>}
                 <table className="activity-table">
-                    <tr>
-                        <td>
-                            <span className="activity-from">{activity.from}</span>
-                        </td>
-                    </tr>
-                    <tr>
-                        {activity.call_type == "voicemail" ?
+                    <tbody>
+                        <tr>
                             <td>
-                                sent a voicemail
+                                <span className="activity-from">{activity.from}</span>
                             </td>
-                            :
+                        </tr>
+                        <tr>
+                            {activity.call_type == "voicemail" ?
+                                <td>
+                                    sent a voicemail
+                                </td>
+                                :
+                                activity.call_type == "missed" ?
+                                    <td>
+                                        tried calling
+                                    </td>
+                                    :
+                                    <td>
+                                        called <span className="activity-to">{activity.to}</span>
+                                    </td>}
                             <td>
-                                called <span className="activity-to">{activity.to}</span>
-                            </td>}
-                        <td>
-                            <div className="activity-time">
+                                <div className="activity-time">
 
-                                {isoToTime(activity.created_at)}
-                            </div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <div className="activity-duration">
-                                for {formatDuration(activity.duration)}
-                            </div>
-                            {/* leaving this out for now because it's too cluttered
-                            <div className="activity-via">
-                                via {activity.via}
-                            </div>
-                             */}
-                        </td>
-
-                    </tr>
+                                    {isoToTime(activity.created_at)}
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div className="activity-duration">
+                                    for {formatDuration(activity.duration)}
+                                </div>
+                                {/* leaving this out for now because it's too cluttered
+                                    <div className="activity-via">
+                                        via {activity.via}
+                                    </div>
+                                 */}
+                            </td>
+                            <td>
+                                <div className="date-container">
+                                    {isoToMonth(activity.created_at)}    {isoToDay(activity.created_at)}
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
                 </table>
             </div>
         </div>

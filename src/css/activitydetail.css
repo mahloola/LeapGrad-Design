@@ -4,9 +4,9 @@
     justify-content: left;
     border: 1px solid black;
     border-radius: 3px;
-    margin: 1.2em 0;
+    margin: 0.8em 0;
     padding: 10px;
-    box-shadow: 5px 0;
+    box-shadow: 2px 0px;
     border-radius: 2em;
 }
 .activity-container:hover {
@@ -53,20 +53,18 @@
     color: grey;
 }
 .activity-table {
-    width: 80%;
+    width: 85%;
     float: right;
 }
 
 .activity-to {
     font-weight: bold;
 }
-.activity-from {
-    
-}
 
 .date-container {
-    font-size: 1em;
-    letter-spacing: 2px;
-    text-align: center;
-    margin-top: 1em;
+    color: grey;
+    float: right;
+    font-size: 0.9em;
+    letter-spacing: 1.5px;
+    font-style: italic;
 }
