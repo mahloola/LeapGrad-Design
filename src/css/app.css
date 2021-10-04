@@ -14,7 +14,7 @@
 #app .navbar {
   display: flex;
   font-family: 'Roboto', sans-serif;
-  margin-bottom: 20px;
+  
 }
 
 #app .container {
@@ -34,7 +34,6 @@
   background: rgba(128, 128, 128, 0.075);
   border: none;
   border-bottom: 1px solid rgba(0, 0, 0, 0.274);
-  border-left: 1px solid rgba(0, 0, 0, 0.274);
   font-family: 'Roboto', sans-serif;
   max-height: 4em;
   padding: 8% 8%;
