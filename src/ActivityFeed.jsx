@@ -43,8 +43,6 @@ const ActivityFeed = () => {
                 <button className={toggleState === 3 ? "tabs active-tabs" : "tabs"} onClick={() => toggleTab(3)}><BsCircle size={20}></BsCircle></button>
             </div>
 
-
-
             <div className="container-view content-tabs">
                 <div className={toggleState === 1 ? "active-content" : "content"}>
                     {
